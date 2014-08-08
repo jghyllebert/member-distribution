@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h1>Personal Shoppers</h1>
+    <a href="{% url "p_shopper_create" %}">Add personal shopper</a>
+
+    <ul>
+    {% for p_shopper in p_shoppers %}
+    <li><a href="{{p_shopper.get_absolute_url }}">{{ p_shopper.first_name }} {{ p_shopper.last_name }}</a> {% if not p_shopper.is_active %}(INACTIVE){% endif %}</li>
+    {% endfor %}
+    </ul>
+
+{% endblock content %}

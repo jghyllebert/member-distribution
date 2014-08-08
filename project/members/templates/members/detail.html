@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Detail {{ member.first_name }} {{ member.last_name }}</h1>
+    <a href="{% url "home" %}">Back to list</a>
+
+    <p>Region: {{ member.region.name }}</p>
+    <p>Phone number: {{ member.phone_number }}</p>
+    <p>Ordered recently: {{ member.ordered_recently }}</p>
+    <p>Personal Shopper: <a href="{{ member.personal_shopper.get_absolute_url }}">{{ member.personal_shopper.first_name }}</a></p>
+
+    <h2>Orders</h2>
+    <ul>
+    {% for order in member.order_set.all  %}
+    <li>{{ order.order_date }}</li>
+    {% endfor %}
+    </ul>
+
+{% endblock content %}

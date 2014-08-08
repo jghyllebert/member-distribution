@@ -1,0 +1,18 @@
+[
+    {
+        "model": "regions.region",
+        "pk": 1,
+        "fields": {
+            "name": "Netherlands",
+            "tva_percentage": 21
+        }
+    },
+    {
+        "model": "regions.region",
+        "pk": 2,
+        "fields": {
+            "name": "Belgium",
+            "tva_percentage": 21
+        }
+    }
+]

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ p_shopper.first_name }} {{ p_shopper.last_name }} <small>(<a href="{% url "p_shopper_update" p_shopper.pk  %}">Update</a>)</small></h1>
+    <a href="{% url "p_shopper_list" %}">Back to list</a>
+
+    <p>Shopper is active: {{ p_shopper.is_active }}</p>
+    <p>Regions: {% for region in p_shopper.regions.all %}{{ region.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+
+    <h2>Assigned members</h2>
+    <ul>
+    {% for member in p_shopper.member_set.all %}
+    <li><a href="{{ member.get_absolute_url }}">{{ member.first_name }} {{ member.last_name }}</a> {% if not member.ordered_recently %}(LEAD){% endif %}</li>
+    {% endfor %}
+    </ul>
+{% endblock content %}

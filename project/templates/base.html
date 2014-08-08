@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url "home" %}">Members</a></li>
+            <li><a href="{% url "p_shopper_list" %}">Personal shoppers</a></li>
+        </ul>
+    </nav>
+</header>
+<article>
+    {% block content %}{% endblock content %}
+</article>
+</body>
+</html>
